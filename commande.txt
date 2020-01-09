@@ -1,0 +1,32 @@
+#START
+
+apt-get update
+apt-get install wget
+
+#NGINX
+
+apt update
+apt install nginx
+service nginx start
+
+#MY_SQL
+
+wget http://repo.mysql.com/mysql-apt-config_0.8.13-1_all.deb
+echo "4" | apt-get install ./mysql-apt-config_0.8.13-1_all.deb
+apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server
+
+#PHP_MY_ADMIN
+
+apt update
+apt install php-mbstring php-zip php-gd
+rm -f phpMyAdmin-4.9.0.1-all-languages.tar.gz#surement necessaire
+wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+tar xvf phpMyAdmin-4.9.0.1-all-languages.tar.gz
+
+#WORD_PRESS
+
+wget -c https://wordpress.org/latest.tar.gz
+tar -xvzf latest.tar.gz
+rm -f latest.tar.gz #suremt pas necssaire
+
